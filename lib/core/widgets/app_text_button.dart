@@ -12,7 +12,7 @@ class AppTextButton extends StatelessWidget {
   final String buttonText;
   final TextStyle textStyle;
   final VoidCallback
-  onPressed; // VoidCallback =>dont take paremtres () and Function=> take parametres (String)
+  onPressed; // VoidCallback => doesn't take parameters () and Function => takes parameters (String)
   const AppTextButton({
     super.key,
     this.borderRadius,

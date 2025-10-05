@@ -11,7 +11,7 @@ class TermsAndConditionsText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'By logging, you agree to our',
+            text: 'By logging in, you agree to our',
             style: AppTextStyles.font13GreyRegular,
           ),
           TextSpan(
