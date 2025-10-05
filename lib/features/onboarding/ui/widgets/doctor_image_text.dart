@@ -1,6 +1,5 @@
 import 'package:docdoc_app/core/themes/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DoctorImageAndText extends StatelessWidget {
@@ -15,10 +14,10 @@ class DoctorImageAndText extends StatelessWidget {
         Container(
           foregroundDecoration: BoxDecoration(
             gradient: LinearGradient(
-              //Les valeurs de stops vont de 0.0 (début du gradient) à 1.0
-              //colors: [red, green, blue],
-              //stops: [0.0, 0.5, 1.0],
-              //0 => 0.14 white , 0.14 => 0.4 white.withOpacity(0.0)
+              // Gradient stop values range from 0.0 (start) to 1.0 (end)
+              // colors: [red, green, blue],
+              // stops: [0.0, 0.5, 1.0],
+              // 0 => 0.14 white, 0.14 => 0.4 white.withOpacity(0.0)
               colors: [Colors.white, Colors.white.withOpacity(0.0)],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
