@@ -9,6 +9,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+
+  #A build system for Dart code generation and modular compilation
+  build_runner:
+
   #state management 
   flutter_bloc: ^9.1.1
   #code generator(mainly used with cubit & retrofit)
@@ -21,9 +25,10 @@ dependencies:
   json_serializable: ^6.11.1
   # Networking
   dio: ^5.9.0
-  retrofit: ^4.7.3
-  retrofit_generator: ^10.0.6
-  pretty_dio_logger: ^1.4.0
+  retrofit:
+  retrofit_generator:
+  pretty_dio_logger:
+
   # localization
   intl: ^0.20.2
   easy_localization: ^3.0.8
