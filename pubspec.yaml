@@ -32,7 +32,7 @@ dependencies:
   # localization
   intl: ^0.20.2
   easy_localization: ^3.0.8
-  #for splash scree,
+  #for splash screen
   flutter_native_splash: ^2.4.6
   # for adapting screen and font size.
   flutter_screenutil: ^5.9.3

@@ -43,7 +43,7 @@ class LoginBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
-       context.pop(); //to dismiss showDialog in loading
+    context.pop(); //to dismiss showDialog in loading
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -54,10 +54,7 @@ class LoginBlocListener extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            child: Text(
-              "Got it",
-              style: AppTextStyles.font14BlueSemiBold,
-            ),
+            child: Text("Got it", style: AppTextStyles.font14BlueSemiBold),
           ),
         ],
       ),

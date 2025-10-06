@@ -21,7 +21,7 @@ class LoginCubit extends Cubit<LoginState> {
     );
 
     response.when(
-      success: (loginResponse) {
+      success: (loginResponse) async {
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {
