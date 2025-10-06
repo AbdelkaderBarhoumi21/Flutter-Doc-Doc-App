@@ -1,10 +1,13 @@
+import 'package:docdoc_app/core/helpers/extensions.dart';
 import 'package:docdoc_app/core/helpers/spacing.dart';
+import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/themes/app_styles.dart';
 import 'package:docdoc_app/core/widgets/app_text_button.dart';
 import 'package:docdoc_app/features/login/data/models/login_request_body.dart';
 import 'package:docdoc_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:docdoc_app/features/login/ui/widgets/already_have_account.dart';
 import 'package:docdoc_app/features/login/ui/widgets/email_and_password.dart';
+import 'package:docdoc_app/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:docdoc_app/features/login/ui/widgets/terms_and_conditions_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,10 +57,11 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(40),
                     const TermsAndConditionsText(),
                     verticalSpace(20),
-                    Align(
+                    const Align(
                       alignment: AlignmentDirectional.center,
                       child: const AlreadyHaveAccountText(),
                     ),
+                    const LoginBlocListener(),
                   ],
                 ),
               ],
