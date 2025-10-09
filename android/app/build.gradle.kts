@@ -1,5 +1,9 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
+
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
@@ -45,7 +49,8 @@ android {
                 type = "string",
                 name = "app_name",
                 value = "DocDoc Production")
-            applicationIdSuffix = ".prod"
+            // Remove the applicationIdSuffix to match your google-services.json
+            // applicationIdSuffix = ".prod"
         }
     }
 
