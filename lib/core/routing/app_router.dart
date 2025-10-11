@@ -1,5 +1,6 @@
 import 'package:docdoc_app/core/di/dependency_injection.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
+import 'package:docdoc_app/features/home/logic/home_cubit.dart';
 import 'package:docdoc_app/features/home/ui/home_screen.dart';
 import 'package:docdoc_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:docdoc_app/features/login/ui/login_screen.dart';
@@ -32,13 +33,15 @@ class AppRouter {
           ),
         );
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
-      default:
         return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(child: Text("No route defined for ${settings.name}")),
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())
+              ..getSpecializations(), // this provide HomeRepo injected in getIt
+            child: const HomeScreen(),
           ),
         );
+      default:
+        return null;
     }
   }
 }
