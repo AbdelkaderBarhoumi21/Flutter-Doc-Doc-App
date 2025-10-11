@@ -65,5 +65,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'docdoc-f575d.firebasestorage.app',
     iosBundleId: 'com.example.docdocApp',
   );
-
 }
