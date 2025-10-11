@@ -41,7 +41,7 @@ android {
                 type = "string",
                 name = "app_name",
                 value = "DocDoc Development")
-            applicationIdSuffix = ".dev"
+            // applicationIdSuffix = ".dev" // Commented out to match google-services.json
         }
         create("production") {
             dimension = "default"
