@@ -25,13 +25,11 @@ jobs:
               with:
                   java-version: "17" # Java version to install
                   distribution: "temurin" # Temurin OpenJDK distribution (recommended)
-
             # Step 3: Install Flutter (stable channel by default)
             - name: Install Flutter
               uses: subosito/flutter-action@v2
               with:
                   channel: stable # stable version of Flutter
-
             # Step 4: Set up Ruby (needed for Fastlane)
             - name: Setup Ruby
               uses: ruby/setup-ruby@v1
@@ -39,7 +37,6 @@ jobs:
                   ruby-version: "3.2.3" # Ruby version
                   bundler-cache: true # caches gems to speed up future runs
                   working-directory: android # Gemfile is inside android/ folder (where Fastlane is installed)
-
             # Step 5: Build the Flutter app + distribute via Firebase App Distribution
             - name: Build and Distribute App
               env:
