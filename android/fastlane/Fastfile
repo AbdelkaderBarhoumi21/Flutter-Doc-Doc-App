@@ -1,0 +1,18 @@
+default_platform(:android)
+platform :android do
+  desc "Lane For Android Firebase App Distribution"
+  lane :firebase_distribution do
+    sh "flutter clean"    
+    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+    firebase_app_distribution(
+    app: "1:21112581615:android:6a22155af2dc039341da1a",
+    firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"], 
+    android_artifact_type: "APK",
+    android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+    testers: "abdelkaderbarhoumi21@gmail.com",
+    release_notes:"First Fastlane Firebase Distribution direct to master => just test!"
+  )
+  end
+end
+# sh SHELL => execute this command in the command line tools
+# CLI token to ensure in future there not problem in refresh token
