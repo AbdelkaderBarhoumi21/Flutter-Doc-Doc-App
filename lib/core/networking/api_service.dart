@@ -9,7 +9,8 @@ part 'api_service.g.dart'; //make generate in this file => the name of file
 
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
 abstract class ApiService {
-  factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
+  factory ApiService(Dio dio, {String baseUrl}) =
+      _ApiService; //return instance from generated class by retrofit =>_ApiService
 
   @POST(ApiConstants.login)
   Future<LoginResponse> login(@Body() LoginRequestBody loginRequestBody);

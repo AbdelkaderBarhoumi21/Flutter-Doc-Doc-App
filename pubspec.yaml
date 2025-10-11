@@ -1,7 +1,7 @@
 name: docdoc_app
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ^3.8.1
@@ -39,6 +39,10 @@ dependencies:
 
   #An SVG rendering and widget library for Flutter, which allows painting 
   flutter_svg: ^2.2.1
+
+  #Firebase 
+  firebase_core:
+
 
 dev_dependencies:
   flutter_test:

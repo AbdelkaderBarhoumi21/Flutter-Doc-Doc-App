@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:docdoc_app/features/login/data/repository/login_repo.dart';
 import 'package:docdoc_app/features/login/logic/cubit/login_state.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
