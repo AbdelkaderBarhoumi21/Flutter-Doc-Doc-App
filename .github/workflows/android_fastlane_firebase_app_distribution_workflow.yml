@@ -6,11 +6,10 @@ on:
     push:
         branches:
             - main
-
 jobs:
     # 🏗️ Job name
     distribute_to_firebase:
-        # 👉 Virtual machine used.
+        # 👉 Virtual machine used in andoird.
         # For Android builds → ubuntu-latest is enough
         # For iOS builds → you would need macos-latest
         runs-on: ubuntu-latest
@@ -21,10 +20,10 @@ jobs:
               uses: actions/checkout@v2
 
             # Step 2: Set up JDK 11 (required for Gradle/Android SDK)
-            - name: Set up JDK 11
-              uses: actions/setup-java@v2
+            - name: Set up JDK 17
+              uses: actions/setup-java@v4
               with:
-                  java-version: "11" # Java version to install
+                  java-version: "17" # Java version to install
                   distribution: "temurin" # Temurin OpenJDK distribution (recommended)
 
             # Step 3: Install Flutter (stable channel by default)
@@ -37,7 +36,7 @@ jobs:
             - name: Setup Ruby
               uses: ruby/setup-ruby@v1
               with:
-                  ruby-version: "3.3" # Ruby version (3.3.x compatible with Fastlane)
+                  ruby-version: "3.2.3" # Ruby version
                   bundler-cache: true # caches gems to speed up future runs
                   working-directory: android # Gemfile is inside android/ folder (where Fastlane is installed)
 
@@ -45,8 +44,7 @@ jobs:
             - name: Build and Distribute App
               env:
                   # 🔑 Environment variable: your Firebase token stored in GitHub Secrets
-                  FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
+                  FIREBASE_CLI_TOKEN: ${{secrets.FIREBASE_CLI_TOKEN}}
               run: |
-                  # Execute the Fastlane lane defined in android/fastlane/Fastfile
                   bundle exec fastlane android firebase_distribution
               working-directory: android # run inside the android/ directory
