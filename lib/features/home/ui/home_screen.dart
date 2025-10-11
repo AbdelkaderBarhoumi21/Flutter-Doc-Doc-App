@@ -1,3 +1,4 @@
+import 'package:docdoc_app/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:docdoc_app/features/home/ui/widgets/home_top_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               //home Top Bar
               HomeTopBar(),
+              DoctorsBlueContainer(),
             ],
           ),
         ),
