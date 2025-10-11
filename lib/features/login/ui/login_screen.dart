@@ -1,9 +1,6 @@
-import 'package:docdoc_app/core/helpers/extensions.dart';
 import 'package:docdoc_app/core/helpers/spacing.dart';
-import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/themes/app_styles.dart';
 import 'package:docdoc_app/core/widgets/app_text_button.dart';
-import 'package:docdoc_app/features/login/data/models/login_request_body.dart';
 import 'package:docdoc_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:docdoc_app/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:docdoc_app/features/login/ui/widgets/email_and_password.dart';
@@ -59,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(20),
                     const Align(
                       alignment: AlignmentDirectional.center,
-                      child: const DontHaveAccountText(),
+                      child: DontHaveAccountText(),
                     ),
                     const LoginBlocListener(),
                   ],
