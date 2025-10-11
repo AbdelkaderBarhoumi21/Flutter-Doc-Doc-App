@@ -1,17 +1,20 @@
-# Workflow name (this will appear in GitHub Actions UI)
+# 🚀 Workflow name (this will appear in GitHub Actions UI)
 name: Android Fastlane with Firebase App Distribution Workflow
-#Trigger: run this workflow every time there is a push on master branch
+
+# 📌 Trigger: run this workflow every time there is a push on master branch
 on:
     push:
         branches:
             - main
+
 jobs:
-    #Job name
+    # 🏗️ Job name
     distribute_to_firebase:
-        #Virtual machine used.
+        # 👉 Virtual machine used.
         # For Android builds → ubuntu-latest is enough
         # For iOS builds → you would need macos-latest
         runs-on: ubuntu-latest
+
         steps:
             # Step 1: Checkout the repository code
             - name: Checkout my repo code
@@ -41,7 +44,7 @@ jobs:
             # Step 5: Build the Flutter app + distribute via Firebase App Distribution
             - name: Build and Distribute App
               env:
-                  #Environment variable: your Firebase token stored in GitHub Secrets
+                  # 🔑 Environment variable: your Firebase token stored in GitHub Secrets
                   FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
               run: |
                   # Execute the Fastlane lane defined in android/fastlane/Fastfile
