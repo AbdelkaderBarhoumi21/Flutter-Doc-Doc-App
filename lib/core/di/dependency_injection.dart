@@ -1,21 +1,23 @@
 import 'package:dio/dio.dart';
 import 'package:docdoc_app/core/networking/api_service.dart';
 import 'package:docdoc_app/core/networking/dio_factory.dart';
+import 'package:docdoc_app/features/home/data/apis/home_api_service.dart';
+import 'package:docdoc_app/features/home/data/repository/home_repo.dart';
+import 'package:docdoc_app/features/home/logic/home_cubit.dart';
 import 'package:docdoc_app/features/login/data/repository/login_repo.dart';
 import 'package:docdoc_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:docdoc_app/features/sign_up/data/repository/sign_up_repo.dart';
 import 'package:docdoc_app/features/sign_up/logic/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
 
+//registerFactory if we want to create object in every use
+//registerlazeysingelton create only one object and reused everywhere
+//when use getIt will be available in all widgets and all pages that need this instance
+//Dio & Api Service
+//Here, LoginRepo depends on ApiService.
+//getIt() by itself = GetIt will fetch the dependency that matches the type expected by the constructor.
 final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
-  //registerFactory if we want to create object in every use
-  //registerlazeysingelton create only one object and reused everywhere
-  //when use getIt will be available in all widgets and all pages that need this instance
-  //Dio & Api Service
-  //Here, LoginRepo depends on ApiService.
-  //getIt() by itself = GetIt will fetch the dependency that matches the type expected by the constructor.
-
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
@@ -27,4 +29,11 @@ Future<void> setupGetIt() async {
   //signup
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
+
+  //home
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+  getIt.registerFactory<HomeCubit>(
+    () => HomeCubit(getIt()),
+  ); //every time need Home cubit it wil create a new instance in each call we cant delete this line and add it to router homescreen(bloc provider)
 }
