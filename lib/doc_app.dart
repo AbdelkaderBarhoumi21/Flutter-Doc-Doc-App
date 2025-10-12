@@ -1,6 +1,7 @@
 import 'package:docdoc_app/core/routing/app_router.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/themes/app_colors.dart';
+import 'package:docdoc_app/main_development.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,7 @@ class DocApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
         theme: ThemeData(
           primaryColor: AppColors.primaryColor,
           scaffoldBackgroundColor: Colors.white,

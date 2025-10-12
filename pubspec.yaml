@@ -45,6 +45,11 @@ dependencies:
   #Firebase 
   firebase_core:
 
+  # reading and writing simple key-value pairs
+  shared_preferences: ^2.5.3
+
+  # provides API to store data in secure storage.
+  flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
   flutter_test:

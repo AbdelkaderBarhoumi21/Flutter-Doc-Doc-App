@@ -1,4 +1,7 @@
+import 'package:docdoc_app/core/helpers/app_shared_preferences_helper.dart';
+import 'package:docdoc_app/core/helpers/constants.dart';
 import 'package:docdoc_app/core/networking/api_result.dart';
+import 'package:docdoc_app/core/networking/dio_factory.dart';
 import 'package:docdoc_app/features/login/data/models/login_request_body.dart';
 import 'package:docdoc_app/features/login/data/models/login_response.dart';
 import 'package:flutter/widgets.dart';
@@ -24,6 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
 
     response.when(
       success: (loginResponse) async {
+        await saveUserToken(loginResponse.userData?.token ?? '');
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {
@@ -31,4 +35,10 @@ class LoginCubit extends Cubit<LoginState> {
       },
     );
   }
+}
+
+Future<void> saveUserToken(String token) async {
+  //save token to shared Preferences
+  await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+  DioFactory.setTokenIntoHeaderAfterLogin(token);
 }
