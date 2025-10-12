@@ -51,6 +51,9 @@ dependencies:
   # provides API to store data in secure storage.
   flutter_secure_storage: ^9.2.4
 
+  # easy way to add shimmer effect
+  shimmer: ^3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

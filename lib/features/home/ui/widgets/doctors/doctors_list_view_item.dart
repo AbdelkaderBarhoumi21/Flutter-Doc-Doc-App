@@ -18,10 +18,10 @@ class DoctorsListViewItem extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0.sp),
             child: Image.asset(
-              'assets/images/doctor_speciality.png',
+              'assets/images/home_doctor.png',
               width: 110.w,
               height: 110.h,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
           horizontalSpace(16),

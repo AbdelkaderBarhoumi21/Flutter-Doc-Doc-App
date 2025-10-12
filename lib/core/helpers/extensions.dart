@@ -32,3 +32,7 @@ extension StringExtension on String? {
   /// String? age = null; // This IS null (doesn't exist)
   bool isNullOrEmpty() => this == null || this == "";
 }
+
+extension ListExtension<T> on List<T>? {
+  bool isNullOrEmpty() => this == null || this!.isEmpty;
+}
