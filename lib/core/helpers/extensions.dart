@@ -25,3 +25,17 @@ extension Navigation on BuildContext {
 
   void pop() => Navigator.of(this).pop();
 }
+
+extension StringExtension on String? {
+  ///this: Refers to the String object itself
+  /// String? name = ""; // This is NOT null (it exists)
+  /// String? age = null; // This IS null (doesn't exist)
+  bool isNullOrEmpty() => this == null || this == "";
+}
+
+extension ListExtension<T> on List<T>? {
+  bool isNullOrEmpty() => this == null || this!.isEmpty;
+}
+extension MapExtension<K,V> on Map<K,V>? {
+  bool isNullOrEmpty() => this == null || this!.isEmpty;
+}

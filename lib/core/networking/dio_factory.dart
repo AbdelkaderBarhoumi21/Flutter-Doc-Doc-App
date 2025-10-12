@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:docdoc_app/core/helpers/app_shared_preferences_helper.dart';
+import 'package:docdoc_app/core/helpers/constants.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
 
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
@@ -16,12 +17,27 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
+      addDioHeader();
       addDioInterceptor();
       return dio!;
     } else {
       return dio!;
     }
   }
+
+  static void addDioHeader() async {
+    dio?.options.headers = {
+      'Accept': 'application/json',
+      'Authorization':
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
+    };
+  }
+
+  ///after login it doesnt read token after login then save token in cubit login
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {'Authorization': 'Bearer $token'};
+  }
+
   static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(
@@ -32,4 +48,3 @@ class DioFactory {
     );
   }
 }
-

@@ -1,6 +1,7 @@
 import 'package:docdoc_app/core/networking/api_result.dart';
 import 'package:docdoc_app/features/sign_up/data/repository/sign_up_repo.dart';
 import 'package:docdoc_app/features/sign_up/logic/sign_up_state.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,11 +23,11 @@ class SignupCubit extends Cubit<SignupState> {
     emit(const SignupState.signupLoading());
     final response = await _signupRepo.signUp(
       SignupRequestBody(
-        name: nameController.text,
-        email: emailController.text,
-        phone: phoneController.text,
-        password: passwordController.text,
-        passwordConfirmation: passwordConfirmationController.text,
+        name: nameController.text.trim(),
+        email: emailController.text.trim(),
+        phone: phoneController.text.trim(),
+        password: passwordController.text.trim(),
+        passwordConfirmation: passwordConfirmationController.text.trim(),
         gender: 0,
       ),
     );
@@ -34,8 +35,8 @@ class SignupCubit extends Cubit<SignupState> {
       success: (signupResponse) {
         emit(SignupState.signupSuccess(signupResponse));
       },
-      failure: (error) {
-        emit(SignupState.signupError(error: error.apiErrorModel.message ?? ''));
+      failure: (apiErrorModel) {
+        emit(SignupState.signupError(apiErrorModel));
       },
     );
   }
