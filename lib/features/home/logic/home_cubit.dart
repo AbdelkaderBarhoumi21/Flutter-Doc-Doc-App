@@ -12,13 +12,14 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
   List<SpecializationsData?>? specializationsList = [];
   void getSpecializations() async {
+    emit(const HomeState.specializationsLoading());
     final response = await _homeRepo.getSpecialization();
     response.when(
       success: (specializationsResponseModel) {
         specializationsList =
             specializationsResponseModel.specializationDataList ?? [];
-            //getting the doctors list for the first specializations list by default 
-            getDoctorsList(specializationsId:1 );
+        //getting the doctors list for the first specializations list by default
+        getDoctorsList(specializationsId: 1);
         emit(HomeState.specializationsSuccess(specializationsList));
       },
       failure: (error) {

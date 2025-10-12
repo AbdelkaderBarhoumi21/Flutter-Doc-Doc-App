@@ -11,7 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   #network image 
-  cached_network_image: ^3.4.1
+  cached_network_image:
   #A build system for Dart code generation and modular compilation
   build_runner:
 
