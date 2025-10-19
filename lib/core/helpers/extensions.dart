@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension Navigation on BuildContext {
-  //used in other class context.pushNamed(Routes.loginScreen instead of Navigator.of(context).pushNamed(Routes.loginScreen);
+  //used in other class context.pushNamed(Routes.loginScreen instead of =>  Navigator.of(context).pushNamed(Routes.loginScreen);
   //this = context du widget.
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);

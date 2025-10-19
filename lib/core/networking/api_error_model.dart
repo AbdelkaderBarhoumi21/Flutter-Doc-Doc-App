@@ -20,7 +20,7 @@ class ApiErrorModel {
   ///returns a string containing all the error messages
   String getAllErrorMessages() {
     if (errors.isNullOrEmpty()) {
-      return message ?? 'Unkown Error occured';
+      return message ?? 'Unknown Error occurred';
     }
 
     final errorMessage = errors!.entries

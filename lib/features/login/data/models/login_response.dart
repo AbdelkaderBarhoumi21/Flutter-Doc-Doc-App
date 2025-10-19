@@ -8,7 +8,6 @@ class LoginResponse {
   UserData? userData;//var that hold the key return by json body => data key 
   bool? status;
   int? code;
-
   LoginResponse({this.message, this.userData, this.status, this.code});
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>

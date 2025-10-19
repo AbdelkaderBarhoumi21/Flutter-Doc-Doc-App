@@ -20,7 +20,6 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
-
   //login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   //DONT USE  registerLazySingleton => it will make some erreur can emit new state after cubit close and cant access IF THE CUBIT CLOSED OR DISPOSED
